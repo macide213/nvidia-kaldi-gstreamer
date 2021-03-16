@@ -23,11 +23,11 @@ WORKERS|Number of workers|1
 To run an instance of master and 15 workers run this:
 ```
 ./downloads_models.sh &&\ 
-docker run -d --rm -p 8080:80 -e WORKERS=15 -v $(PWD)/models:/opt/models --name gstreamer_15workers gstream
+docker run -d --gpus all --rm -p 8080:80 -e WORKERS=15 -v $(PWD)/models:/opt/models --name gstreamer_15workers gstream
 ```
 
 To run an instance of just 15 workers and direct to different master on gstream.url:8080 run this:
 ```
 ./downloads_models.sh &&\ 
-docker run -d --rm -p 8080:80 -e MASTER=gstream.url -e PORT=8080 -e WORKERS=15 -v $(PWD)/models:/opt/models --name gstreamer_15workers gstream
+docker run -d --gpus all --rm -p 8080:80 -e MASTER=gstream.url -e PORT=8080 -e WORKERS=15 -v $(PWD)/models:/opt/models --name gstreamer_15workers gstream
 ```
